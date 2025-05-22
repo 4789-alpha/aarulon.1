@@ -1,13 +1,16 @@
 # aarulon.1
 
-Aarulon (Aari) is a modular, locally running assistant prototype. The goal is to
-provide a playful, child-like AI companion that runs entirely offline. This
-repository contains minimal starter modules:
+Aarulon (Aari) ist ein modular aufgebauter Assistent, der komplett lokal
+ausgeführt wird. Ziel ist ein verspielter, kindlicher Begleiter, der ohne
+Internetverbindung läuft. Diese Basisversion verwendet Deutsch als
+Grundsprache. Weitere Sprachen können später daraus abgeleitet werden.
 
-- `start.sh` – launch script
-- `aari.py` – main controller with a simple voice check using `pyttsx3`
-- `aari_listen.py` – placeholder for future speech recognition
-- `systemcheck.py` – utility functions for checking system commands
-- `aari_config.json` – example configuration file
+Enthalten sind folgende Minimalmodule:
 
-Run `./start.sh` to start Aari.
+- `start.sh` – Startskript
+- `aari.py` – Hauptcontroller mit einfachem Sprachtest über `pyttsx3`
+- `aari_listen.py` – Platzhalter für zukünftige Spracherkennung
+- `systemcheck.py` – Hilfsfunktionen für Systemkommandos
+- `aari_config.json` – Beispielkonfiguration
+
+Starte Aari mit `./start.sh`.

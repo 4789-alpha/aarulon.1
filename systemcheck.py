@@ -1,4 +1,4 @@
-"""Simple system check utilities for Aari."""
+"""Einfache Systemprüfungen für Aari."""
 
 import shutil
 import subprocess
@@ -18,5 +18,5 @@ def ffmpeg_version():
 
 
 if __name__ == "__main__":
-    print("ffmpeg available:", check_command("ffmpeg"))
-    print("ffmpeg version:", ffmpeg_version())
+    print("ffmpeg verfügbar:", check_command("ffmpeg"))
+    print("ffmpeg Version:", ffmpeg_version())
