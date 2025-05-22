@@ -4,12 +4,12 @@ import time
 
 
 def listen_loop():
-    print("[Aari] Listening... (placeholder)")
+    print("[Aari] Lausche... (Platzhalter)")
     try:
         while True:
             time.sleep(1)
     except KeyboardInterrupt:
-        print("[Aari] Stopped listening.")
+        print("[Aari] Lauschen beendet.")
 
 
 if __name__ == "__main__":

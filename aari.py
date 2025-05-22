@@ -1,6 +1,7 @@
 import os
-import sys
 import json
+
+from messages import get_message, BASE_LANG
 
 
 def check_pyttsx3():
@@ -11,31 +12,41 @@ def check_pyttsx3():
         return False, str(e)
 
 
-def say(text):
+def say(text, lang):
     try:
         import pyttsx3
         engine = pyttsx3.init()
         engine.say(text)
         engine.runAndWait()
     except Exception:
-        print("[Aari] Voice output unavailable.\n")
+        print(get_message("voice_output_unavailable", lang))
 
 
-def perform_self_check():
+def perform_self_check(lang):
     ok, err = check_pyttsx3()
     if ok:
-        print("[Aari] Voice engine ready.")
-        say("Mini Stimm isch parat")
+        print(get_message("voice_engine_ready", lang))
+        say(get_message("say_voice_ready", lang), lang)
     else:
-        print("[Aari] Mini Stimm funktioniert nid: {}".format(err))
-        print("[Aari] Versuche pyttsx3 zu installieren...")
+        print(get_message("voice_failure", lang).format(err=err))
+        print(get_message("installing_pyttsx3", lang))
         os.system("pip install pyttsx3")
 
 
+def load_config():
+    try:
+        with open("aari_config.json", "r") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
 def main():
-    perform_self_check()
+    config = load_config()
+    lang = config.get("language", BASE_LANG)
+    perform_self_check(lang)
     # Placeholder for future modules
-    print("[Aari] System ready.")
+    print(get_message("system_ready", lang))
 
 
 if __name__ == "__main__":
