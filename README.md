@@ -9,7 +9,7 @@ Enthalten sind folgende Minimalmodule:
 
 - `start.sh` – Startskript
 - `aari.py` – Hauptcontroller mit einfachem Sprachtest über `pyttsx3`
-- `aari_listen.py` – Platzhalter für zukünftige Spracherkennung
+- `aari_listen.py` – Offline-Spracherkennung mit `vosk`
 - `systemcheck.py` – Hilfsfunktionen für Systemkommandos
 - `aari_config.json` – Beispielkonfiguration
 - `install_aari.py` – Einfache plattformübergreifende Installation
@@ -17,6 +17,11 @@ Enthalten sind folgende Minimalmodule:
 Starte Aari klassisch mit `./start.sh` oder nutze `install_aari.py` für
 eine automatische Installation der benötigten Python-Pakete.
 
+## Abhängigkeiten
+
+* `pyttsx3` für die Sprachausgabe
+* `vosk` und `sounddevice` für die Offline-Spracherkennung
+* ein passendes Vosk-Sprachmodell im Ordner `model`
 ## Installation
 
 Führe zuerst das Installationsskript aus, um die Abhängigkeiten

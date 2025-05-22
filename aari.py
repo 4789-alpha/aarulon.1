@@ -41,6 +41,16 @@ def load_config():
         return {}
 
 
+def handle_voice_command(text, lang=BASE_LANG):
+    """Process recognized text from ``aari_listen``."""
+    print(f"[Aari] Sprachbefehl erhalten: {text}")
+    # Simple placeholder reaction
+    try:
+        say(text, lang)
+    except Exception:
+        pass
+
+
 def main():
     config = load_config()
     lang = config.get("language", BASE_LANG)
