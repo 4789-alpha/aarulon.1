@@ -14,10 +14,12 @@ Enthalten sind folgende Minimalmodule:
 - `aari_config.json` – Beispielkonfiguration
 - `install_aari.py` – Einfache plattformübergreifende Installation
 
-Starte Aari klassisch mit `./start.sh` oder nutze `install_aari.py` für
-eine automatische Installation der benötigten Python-Pakete.
+Starte Aari klassisch mit `./start.sh <befehl>` oder nutze `install_aari.py`
+für eine automatische Installation der benötigten Python-Pakete.
 
 ## Abhängigkeiten
+
+Alle benötigten Pakete sind in `requirements.txt` aufgelistet:
 
 * `pyttsx3` für die Sprachausgabe
 * `vosk` und `sounddevice` für die Offline-Spracherkennung
@@ -25,30 +27,33 @@ eine automatische Installation der benötigten Python-Pakete.
 ## Installation
 
 Führe zuerst das Installationsskript aus, um die Abhängigkeiten
-herunterzuladen und Aari zu starten:
+zu installieren und Aari zu starten:
 
 ```bash
 python3 install_aari.py
 ```
 
-Das Skript prüft, ob das Paket `pyttsx3` vorhanden ist und installiert es
-bei Bedarf automatisch. Alternativ kann das Paket auch manuell mittels
-`pip install pyttsx3` installiert werden.
+Das Skript installiert automatisch alle Pakete aus `requirements.txt`.
 
 ## Start
 
-Nach erfolgreicher Installation lässt sich Aari mit dem beiliegenden
-Skript starten:
+Nach erfolgreicher Installation kann das Kommandozeilen-Werkzeug
+gestartet werden:
 
 ```bash
-./start.sh
+./start.sh <befehl>
 ```
 
 Oder direkt via Python:
 
 ```bash
-python3 aari.py
+python3 cli.py <befehl>
 ```
+
+Verfügbare Befehle sind `self-check`, `system-data`, `listen` und
+`say <text>`.
+## Roboterfisch-Steuerung
+Mit dem Modul `robotfish.py` kann Aari einen Roboterfisch kontrollieren. Die Funktion `control_robot_fish()` akzeptiert nur die Signatur `4789` und gibt den ausgefuehrten Befehl im Dry-Run-Modus aus.
 
 ## Konfiguration
 
