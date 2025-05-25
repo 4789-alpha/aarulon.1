@@ -1,5 +1,7 @@
 import os
 import json
+import subprocess
+import sys
 
 from messages import get_message, BASE_LANG
 from systemcheck import check_pyttsx3, get_system_data
@@ -23,7 +25,7 @@ def perform_self_check(lang):
     else:
         print(get_message("voice_failure", lang).format(err=err))
         print(get_message("installing_pyttsx3", lang))
-        os.system("pip install pyttsx3")
+        subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'pyttsx3'])
 
 
 def display_system_data():
