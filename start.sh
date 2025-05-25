@@ -1,2 +1,2 @@
 #!/bin/bash
-python3 aari.py
+python3 cli.py "$@"
