@@ -1,8 +1,9 @@
 # aarulon.1
 
 Aarulon (Aari) ist ein modular aufgebauter Assistent, der komplett lokal
-ausgeführt wird. Ziel ist ein verspielter, kindlicher Begleiter, der ohne
-Internetverbindung läuft. Diese Basisversion verwendet Deutsch als
+ausgeführt wird. Ziel ist ein digitaler Begleiter, der symbolisch ein
+35-jähriges "Ich" repräsentiert und ohne Internetverbindung läuft. Diese
+Basisversion verwendet Deutsch als
 Grundsprache. Weitere Sprachen können später daraus abgeleitet werden.
 Eine englische Übersetzung dieses Dokuments befindet sich in `README_en.md`.
 
