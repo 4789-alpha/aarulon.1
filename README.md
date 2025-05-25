@@ -1,8 +1,9 @@
 # aarulon.1
 
 Aarulon (Aari) ist ein modular aufgebauter Assistent, der komplett lokal
-ausgeführt wird. Ziel ist ein verspielter, kindlicher Begleiter, der ohne
-Internetverbindung läuft. Diese Basisversion verwendet Deutsch als
+ausgeführt wird. Ziel ist ein digitaler Begleiter, der symbolisch ein
+35-jähriges "Ich" repräsentiert und ohne Internetverbindung läuft. Diese
+Basisversion verwendet Deutsch als
 Grundsprache. Weitere Sprachen können später daraus abgeleitet werden.
 
 Enthalten sind folgende Minimalmodule:
@@ -23,6 +24,7 @@ Alle benötigten Pakete sind in `requirements.txt` aufgelistet:
 
 * `pyttsx3` für die Sprachausgabe
 * `vosk` und `sounddevice` für die Offline-Spracherkennung
+* `pyaudio` für die Erkennung von Ein- und Ausgabegeräten
 * ein passendes Vosk-Sprachmodell im Ordner `model`
 ## Installation
 
