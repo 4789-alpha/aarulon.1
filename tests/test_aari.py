@@ -1,6 +1,6 @@
 import sys
 import builtins
-import os
+import subprocess
 import types
 from pathlib import Path
 
@@ -52,14 +52,13 @@ def test_perform_self_check_failure(monkeypatch, capsys):
     monkeypatch.setattr(aari, "check_pyttsx3", lambda: (False, "error"))
     executed = []
 
-    def fake_system(cmd):
-        executed.append(cmd)
+    def fake_check_call(args):
+        executed.append(args)
         return 0
 
-    monkeypatch.setattr(os, "system", fake_system)
-
+    monkeypatch.setattr(subprocess, "check_call", fake_check_call)
     aari.perform_self_check("en")
     out = capsys.readouterr().out
     assert "[Aari] My voice doesn't work: error" in out
     assert "[Aari] Trying to install pyttsx3..." in out
-    assert executed == ["pip install pyttsx3"]
+    assert executed == [[sys.executable, "-m", "pip", "install", "pyttsx3"]]
