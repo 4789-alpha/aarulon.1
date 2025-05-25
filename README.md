@@ -13,8 +13,10 @@ Enthalten sind folgende Minimalmodule:
 - `systemcheck.py` – Hilfsfunktionen für Systemkommandos
 - `aari_config.json` – Beispielkonfiguration
 - `install_aari.py` – Einfache plattformübergreifende Installation
+- `robotfish.py` – Steuerbefehle für den Roboterfisch
 
 Starte Aari klassisch mit `./start.sh` oder nutze `install_aari.py` für
+- `robotfish.py` – Steuerbefehle für den Roboterfisch
 eine automatische Installation der benötigten Python-Pakete.
 
 ## Abhängigkeiten
@@ -29,6 +31,7 @@ herunterzuladen und Aari zu starten:
 
 ```bash
 python3 install_aari.py
+- `robotfish.py` – Steuerbefehle für den Roboterfisch
 ```
 
 Das Skript prüft, ob das Paket `pyttsx3` vorhanden ist und installiert es
@@ -49,6 +52,8 @@ Oder direkt via Python:
 ```bash
 python3 aari.py
 ```
+## Roboterfisch-Steuerung
+Mit dem Modul `robotfish.py` kann Aari einen Roboterfisch kontrollieren. Die Funktion `control_robot_fish()` akzeptiert nur die Signatur `4789` und gibt den ausgefuehrten Befehl im Dry-Run-Modus aus.
 
 ## Konfiguration
 
