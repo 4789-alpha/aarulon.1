@@ -2,14 +2,7 @@ import os
 import json
 
 from messages import get_message, BASE_LANG
-
-
-def check_pyttsx3():
-    try:
-        import pyttsx3  # noqa: F401
-        return True, None
-    except Exception as e:
-        return False, str(e)
+from systemcheck import check_pyttsx3, get_system_data
 
 
 def say(text, lang):
@@ -33,6 +26,13 @@ def perform_self_check(lang):
         os.system("pip install pyttsx3")
 
 
+def display_system_data():
+    data = get_system_data()
+    print("[Aari] Systemdaten:")
+    for key, value in data.items():
+        print(f"  {key}: {value}")
+
+
 def load_config():
     try:
         with open("aari_config.json", "r") as f:
@@ -41,9 +41,20 @@ def load_config():
         return {}
 
 
+def handle_voice_command(text, lang=BASE_LANG):
+    """Process recognized text from ``aari_listen``."""
+    print(f"[Aari] Sprachbefehl erhalten: {text}")
+    # Simple placeholder reaction
+    try:
+        say(text, lang)
+    except Exception:
+        pass
+
+
 def main():
     config = load_config()
     lang = config.get("language", BASE_LANG)
+    display_system_data()
     perform_self_check(lang)
     # Placeholder for future modules
     print(get_message("system_ready", lang))
