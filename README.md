@@ -87,3 +87,17 @@ Sprachblöcke ergänzt werden. Nach dem Hinzufügen einer neuen Sprache
 muss der entsprechende Sprachcode in der Konfiguration unter
 `language` eingetragen werden, um Aari mit dieser Lokalisierung zu
 starten.
+
+## Autostart-Service
+
+Mit `setup_autostart.py` kann ein systemd-Dienst angelegt werden, der Aari beim Benutzer-Login automatisch startet. Das Skript erzeugt die Datei `~/.config/systemd/user/aari.service`.
+
+```bash
+python3 setup_autostart.py
+systemctl --user enable aari.service
+systemctl --user start aari.service
+```
+
+## Einfacher HTTP-Server
+
+`aari_server.py` stellt einen kleinen HTTP-Server auf Port 4789 bereit. Mit `GET /say?text=<TEXT>&signature=4789` spricht Aari den Text. Ein `GET /ping` liefert `pong`. Bei falscher Signatur antwortet der Server mit `403`.
