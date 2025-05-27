@@ -74,3 +74,17 @@ Adjusting this file lets you easily rename Aari or switch to another language.
 ## Localization
 
 All message texts are stored in `messages.py`. You can add more languages there. After adding a language, set its code in the configuration under `language` to start Aari with that localization.
+
+## Autostart service
+
+`setup_autostart.py` creates a systemd unit so Aari starts automatically when the user logs in. It writes `~/.config/systemd/user/aari.service`.
+
+```bash
+python3 setup_autostart.py
+systemctl --user enable aari.service
+systemctl --user start aari.service
+```
+
+## Simple HTTP server
+
+`aari_server.py` provides a small HTTP server on port 4789. `GET /say?text=<TEXT>&signature=4789` will let Aari speak the text. A `GET /ping` returns `pong`. Requests with an invalid signature receive `403`.
